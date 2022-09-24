@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface StateType {
+export interface ToDoType {
   text: string;
   id: number;
   completed: boolean;
 }
 
-export type ToDoState = StateType[];
+export type ToDoState = ToDoType[];
 
 const initialState: ToDoState = JSON.parse(
   localStorage.getItem("toDos") || "{}"
@@ -38,6 +38,11 @@ const toDos = createSlice({
       state[index].completed = action.payload.completed;
       localStorage.setItem("toDos", JSON.stringify(state));
     },
+    // changedetail(state, action) {
+    //   const index = state.findIndex((todo) => todo.id === action.payload.id);
+    //   state[index].detail = action.payload.value;
+    //   localStorage.setItem("toDos", JSON.stringify(state));
+    // },
   },
 });
 export const { add, remove, changeComplete, allRemove } = toDos.actions;

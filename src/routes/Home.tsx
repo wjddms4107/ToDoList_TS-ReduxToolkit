@@ -1,27 +1,35 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StateType } from "../store/todo";
-import { ToDos } from "../components/ToDoList";
+import { ToDoType } from "../store/todo";
+import { ToDoList } from "../components/ToDoList";
 import { ToDoForm } from "../components/ToDoForm";
 import { ToDoClearAll } from "../components/ToDoClearAll";
+import { ToDoMemo } from "../components/ToDoMemo";
 
 export interface toDoType {
-  toDo: StateType[];
+  toDo: ToDoType[];
 }
 
 export function Home() {
   const toDos = useSelector((state: toDoType) => state.toDo);
 
   return (
-    <div className="w-[460px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 shadow-2xl">
-      <span className="text-[40px] flex justify-center py-4 ">오늘 할 일</span>
-      <ul>
-        {toDos.map(({ text, id, completed }) => (
-          <ToDos key={id} text={text} id={id} completed={completed} />
-        ))}
-      </ul>
-      <ToDoForm />
-      <ToDoClearAll />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex">
+      <div className="w-[460px] p-8 mx-8 shadow-2xl">
+        <span className="text-[40px] flex justify-center py-4 ">
+          오늘 할 일
+        </span>
+        <ul>
+          {toDos.map(({ text, id, completed }) => (
+            <ToDoList key={id} text={text} id={id} completed={completed} />
+          ))}
+        </ul>
+        <ToDoForm />
+        <ToDoClearAll />
+      </div>
+      <div className="w-[460px] p-8 mx-8 shadow-2xl">
+        <ToDoMemo />
+      </div>
     </div>
   );
 }

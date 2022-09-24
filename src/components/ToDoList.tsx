@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { remove, changeComplete, StateType } from "../store/todo";
+import { remove, changeComplete, ToDoType } from "../store/todo";
 
-export function ToDos({ text, id, completed }: StateType) {
+export function ToDoList({ text, id, completed }: ToDoType) {
   const dispatch = useDispatch();
 
   const handleCompleteClick = () => {
@@ -32,19 +31,15 @@ export function ToDos({ text, id, completed }: StateType) {
           onChange={handleCompleteClick}
         />
       </label>
-
-      <Link to={`/${id}`}>
-        <span
-          className={`${
-            completed === true
-              ? "text-[#ACB5BD] line-through"
-              : "text-[#797C84]"
-          }
+      <span
+        className={`${
+          completed === true ? "text-[#ACB5BD] line-through" : "text-[#797C84]"
+        }
         flex text-[20px] p-2`}
-        >
-          {text}
-        </span>
-      </Link>
+      >
+        {text}
+      </span>
+
       <button
         className="bg-[#DD3645] text-[#ffffff] text-[15px] w-[40px] h-[30px] m-2 rounded"
         type="button"

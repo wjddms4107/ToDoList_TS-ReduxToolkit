@@ -19,9 +19,10 @@ export function ToDoForm() {
   return (
     <form className="flex justify-between py-4 pt-14" onSubmit={onSubmit}>
       <input
-        className="border-2 border-[#eeeeee] w-5/6 rounded"
+        className="border-2 border-[#eeeeee] w-5/6 rounded pl-3"
         type="text"
         value={text}
+        placeholder="오늘 할 일을 적어보세요."
         onChange={onChange}
       />
       <button
