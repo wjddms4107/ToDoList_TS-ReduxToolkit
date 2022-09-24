@@ -1,41 +1,27 @@
-import React, {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { add } from '../store';
-import { ToDo } from '../components/ToDo';
+import React from "react";
+import { useSelector } from "react-redux";
+import { StateType } from "../store/todo";
+import { ToDos } from "../components/ToDoList";
+import { ToDoForm } from "../components/ToDoForm";
+import { ToDoClearAll } from "../components/ToDoClearAll";
 
-interface stateType {
-  text:string;
-  id:number;
+export interface toDoType {
+  toDo: StateType[];
 }
 
 export function Home() {
-  const [text, setText] = useState("");
-  const toDos = useSelector((state:stateType[]) => state);
-  const dispatch = useDispatch();
-
-  function onSubmit(e: React.SyntheticEvent) {
-    e.preventDefault();
-    dispatch(add(text));
-    setText("");
-  }
-
-  function onChange(e: React.ChangeEvent<HTMLInputElement>):void {
-    setText(e.target.value);
-  }
+  const toDos = useSelector((state: toDoType) => state.toDo);
 
   return (
-    <>
-    <h1>정은 ToDoList</h1>
-    <form onSubmit={onSubmit}>
-      <input type="text" value={text} onChange={onChange} />
-      <button type="submit">Add</button>
+    <div className="w-[460px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 shadow-2xl">
+      <span className="text-[40px] flex justify-center py-4 ">오늘 할 일</span>
       <ul>
-        {toDos.map(toDo => (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <ToDo {...toDo} />
+        {toDos.map(({ text, id, completed }) => (
+          <ToDos key={id} text={text} id={id} completed={completed} />
         ))}
       </ul>
-    </form>
-    </>
-  )
+      <ToDoForm />
+      <ToDoClearAll />
+    </div>
+  );
 }
