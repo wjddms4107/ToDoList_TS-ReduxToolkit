@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeMemo, MemoState } from "../store/memo";
+import { Dispatch } from "@reduxjs/toolkit";
+import { changeMemo } from "../store/memo";
+import { RootState } from "../store/store";
 
 export function ToDoMemo() {
   const [value, setText] = useState("");
-  const state = useSelector((state: MemoState) => state.memo);
+  const state = useSelector((state: RootState) => state.memo);
+  const dispatch: Dispatch = useDispatch();
 
-  const dispatch = useDispatch();
-
-  function onSubmit(e: React.SyntheticEvent) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(changeMemo(value));
     setText("");

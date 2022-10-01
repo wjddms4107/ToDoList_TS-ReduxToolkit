@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
 import { add } from "../store/todo";
 
 export function ToDoForm() {
   const [text, setText] = useState("");
-  const dispatch = useDispatch();
+  const dispatch: Dispatch = useDispatch();
 
-  function onSubmit(e: React.SyntheticEvent) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(add(text));
     setText("");
   }
 
-  function onChange(e: React.ChangeEvent<HTMLInputElement>): void {
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     setText(e.target.value);
   }
 

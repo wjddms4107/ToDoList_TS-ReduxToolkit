@@ -1,17 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ToDoType } from "../store/todo";
 import { ToDoList } from "../components/ToDoList";
 import { ToDoForm } from "../components/ToDoForm";
 import { ToDoClearAll } from "../components/ToDoClearAll";
 import { ToDoMemo } from "../components/ToDoMemo";
-
-export interface toDoType {
-  toDo: ToDoType[];
-}
+import { RootState } from "../store/store";
 
 export function Home() {
-  const toDos = useSelector((state: toDoType) => state.toDo);
+  const toDos = useSelector((state: RootState) => state.toDo);
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex">

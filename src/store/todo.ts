@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface ToDoType {
   text: string;
@@ -6,9 +6,7 @@ export interface ToDoType {
   completed: boolean;
 }
 
-export type ToDoState = ToDoType[];
-
-const initialState: ToDoState = JSON.parse(
+const initialState: ToDoType[] = JSON.parse(
   localStorage.getItem("toDos") || "{}"
 );
 
@@ -16,7 +14,7 @@ const toDos = createSlice({
   name: "toDos",
   initialState,
   reducers: {
-    add(state, action) {
+    add(state, action: PayloadAction<string>) {
       const nextId = Math.max(...state.map((todo) => todo.id)) + 1;
       state.push({
         text: action.payload,
@@ -25,7 +23,7 @@ const toDos = createSlice({
       });
       localStorage.setItem("toDos", JSON.stringify(state));
     },
-    remove(state, action) {
+    remove(state, action: PayloadAction<number>) {
       state = state.filter((todo) => todo.id !== action.payload);
       localStorage.setItem("toDos", JSON.stringify(state));
     },
@@ -33,7 +31,10 @@ const toDos = createSlice({
       state = [];
       localStorage.setItem("toDos", JSON.stringify(state));
     },
-    changeComplete(state, action) {
+    changeComplete(
+      state,
+      action: PayloadAction<{ id: number; completed: boolean }>
+    ) {
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state[index].completed = action.payload.completed;
       localStorage.setItem("toDos", JSON.stringify(state));
