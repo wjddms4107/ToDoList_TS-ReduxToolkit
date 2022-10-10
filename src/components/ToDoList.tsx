@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { remove, changeComplete, ToDoType } from "../store/todo";
 
-export function ToDoList({ text, id, completed }: ToDoType) {
+export function ToDoList({ text, id, completed }: ToDoType): JSX.Element {
   const dispatch: Dispatch = useDispatch();
 
   const handleCompleteClick = () => {

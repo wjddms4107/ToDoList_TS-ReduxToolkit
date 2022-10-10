@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { allRemove } from "../store/todo";
 
-export function ToDoClearAll() {
+export function ToDoClearAll(): JSX.Element {
   const dispatch: Dispatch = useDispatch();
 
   function handleClearAll() {

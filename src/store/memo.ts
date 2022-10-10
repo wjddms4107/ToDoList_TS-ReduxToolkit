@@ -4,11 +4,6 @@ export interface MemoType {
   detail: string;
 }
 
-// export interface MemoState {
-//   toDo: ToDoType[];
-//   memo: MemoType;
-// }
-
 const initialState: MemoType = JSON.parse(
   localStorage.getItem("toDoMemo") || "[]"
 );

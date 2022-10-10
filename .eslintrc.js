@@ -41,7 +41,7 @@ module.exports = {
     ],
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "@typescript-eslint/explicit-function-return-type": "off",
-    "no-var": "warn", // var 금지
+    "no-var": "warn", // var 금지x
     "no-multiple-empty-lines": "warn", // 여러 줄 공백 금지
     "no-console": ["warn", { allow: ["warn", "error"] }], // console.log() 금지
     "dot-notation": "warn", // 가능하다면 dot notation 사용

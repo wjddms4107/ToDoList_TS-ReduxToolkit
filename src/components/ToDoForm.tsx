@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { add } from "../store/todo";
 
-export function ToDoForm() {
+export function ToDoForm(): JSX.Element {
   const [text, setText] = useState("");
   const dispatch: Dispatch = useDispatch();
 

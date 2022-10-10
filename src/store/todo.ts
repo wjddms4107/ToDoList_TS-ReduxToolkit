@@ -7,7 +7,7 @@ export interface ToDoType {
 }
 
 const initialState: ToDoType[] = JSON.parse(
-  localStorage.getItem("toDos") || "{}"
+  localStorage.getItem("toDos") || "[]"
 );
 
 const toDos = createSlice({

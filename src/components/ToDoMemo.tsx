@@ -4,7 +4,7 @@ import { Dispatch } from "@reduxjs/toolkit";
 import { changeMemo } from "../store/memo";
 import { RootState } from "../store/store";
 
-export function ToDoMemo() {
+export function ToDoMemo(): JSX.Element {
   const [value, setText] = useState("");
   const state = useSelector((state: RootState) => state.memo);
   const dispatch: Dispatch = useDispatch();
