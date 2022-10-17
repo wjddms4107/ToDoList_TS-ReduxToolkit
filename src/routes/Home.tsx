@@ -10,11 +10,9 @@ export function Home() {
   const toDos = useSelector((state: RootState) => state.toDo);
 
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex">
-      <div className="w-[460px] p-8 mx-8 shadow-2xl">
-        <span className="text-[40px] flex justify-center py-4 ">
-          오늘 할 일
-        </span>
+    <article className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex">
+      <section className="w-[460px] p-8 mx-8 shadow-2xl">
+        <h1 className="text-[40px] flex justify-center py-4 ">오늘 할 일</h1>
         <ul>
           {toDos.map(({ text, id, completed }) => (
             <ToDoList key={id} text={text} id={id} completed={completed} />
@@ -22,10 +20,10 @@ export function Home() {
         </ul>
         <ToDoForm />
         <ToDoClearAll />
-      </div>
-      <div className="w-[460px] p-8 mx-8 shadow-2xl">
+      </section>
+      <section className="w-[460px] p-8 mx-8 shadow-2xl">
         <ToDoMemo />
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

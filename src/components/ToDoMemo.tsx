@@ -20,9 +20,9 @@ export function ToDoMemo(): JSX.Element {
   }
 
   return (
-    <div className="flex flex-col content-between h-full">
+    <article className="flex flex-col content-between h-full">
       <div className="h-4/6">
-        <span className="text-[40px] flex justify-center pt-4">메모</span>
+        <h1 className="text-[40px] flex justify-center pt-4">메모</h1>
         <div className="m-2 pt-3 text-[20px] text-[#797C84]">
           {state.detail}
         </div>
@@ -43,6 +43,6 @@ export function ToDoMemo(): JSX.Element {
           </button>
         </form>
       </div>
-    </div>
+    </article>
   );
 }
