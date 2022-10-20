@@ -1,4 +1,5 @@
 # TypeScrip-ReduxToolkit 기반 ToDoList
+[https://todolist-ts-reduxtoolkit.netlify.app](https://todolist-ts-reduxtoolkit.netlify.app)
 
 <img src="https://user-images.githubusercontent.com/78889402/193385840-70c28aaa-1c9b-4512-8180-a86594c764ea.mov">
 
@@ -10,10 +11,7 @@ TypeScrip, Redux-toolkit에 익숙해지기
 ## 2️⃣ 현재 구현 기능
 추가 기능, 삭제 기능, 전체삭제 기능, 완료한 거 체크 기능, 메모 기능, localStorage에 저장 기능
 
-## 3️⃣ 추후 추가 기능
-droganddrop 기능, 명언 기능, 현재 시각 기능
-
-## 4️⃣ 기억에 남는 코드
+## 3️⃣ 기억에 남는 코드
 <details>
 <summary><b>event, button도 타입지정</b></summary>
 <div markdown="1">
