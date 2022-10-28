@@ -6,7 +6,7 @@
 
 
 ## 1️⃣ 목적
-TypeScrip, Redux-toolkit에 익숙해지기
+TypeScript, Redux-toolkit에 익숙해지기
 
 ## 2️⃣ 현재 구현 기능
 추가 기능, 삭제 기능, 전체삭제 기능, 완료한 거 체크 기능, 메모 기능, localStorage에 저장 기능
